@@ -15,11 +15,8 @@ phases:
   build:
     commands:
       - cd WebapiDemoDocker
-      - docker build -t demoapi:latest .
+      - docker build --platform linux/amd64,linux/arm64 -t demoapi:latest .
       - docker tag demoapi:latest $REPOSITORY_URI:latest
   post_build:
     commands:
       - docker push $REPOSITORY_URI:latest
-      - cat imagedefinitions.json
-artifacts:
-  files: imagedefinitions.json
