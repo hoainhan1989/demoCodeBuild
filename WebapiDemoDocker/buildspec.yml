@@ -15,7 +15,7 @@ phases:
   build:
     commands:
       - cd WebapiDemoDocker
-      - docker build -t demoapi:latest .
+      - docker build --platform linux/amd64 -t demoapi:latest .
       - docker tag demoapi:latest $REPOSITORY_URI:latest
   post_build:
     commands:
