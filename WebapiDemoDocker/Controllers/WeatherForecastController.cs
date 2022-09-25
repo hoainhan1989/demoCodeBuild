@@ -41,5 +41,11 @@ namespace WebapiDemoDocker.Controllers
         {
             return "123";
         }
+
+        [HttpGet("get456")]
+        public string Get456()
+        {
+            return "456";
+        }
     }
 }
