@@ -1,0 +1,7 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/WebapiDemoDocker
+/WebapiDemoDocker/bin/Debug/netcoreapp3.1
+/WebapiDemoDocker/obj
