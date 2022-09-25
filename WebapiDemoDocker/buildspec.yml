@@ -20,9 +20,3 @@ phases:
   post_build:
     commands:
       - docker push $REPOSITORY_URI:latest
-artifacts:
-  files:
-    - '**/*'
-  base-directory: base_dir
-  name: build-artifact-name
-  discard-paths: no
