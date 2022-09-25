@@ -14,19 +14,12 @@ phases:
       - IMAGE_TAG=build-$(echo $CODEBUILD_BUILD_ID | awk -F":" '{print $2}')
   build:
     commands:
-      - echo Build started on `date`
-      - echo Building the Docker image...
       - cd WebapiDemoDocker
-      - docker build -t $REPOSITORY_URI:latest .
-      - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:latest
+      - docker build -t demoapi:latest .
+      - docker tag demoapi:latest $REPOSITORY_URI:latest
   post_build:
     commands:
-      - echo Build completed on `date`
-      - echo Pushing the Docker images...
       - docker push $REPOSITORY_URI:latest
-      - echo Writing image definitions file...
-      - printf '[{"name":"simple-app","imageUri":"%s"}]'
-        $REPOSITORY_URI:latest > imagedefinitions.json
       - cat imagedefinitions.json
 artifacts:
   files: imagedefinitions.json
